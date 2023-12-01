@@ -1,0 +1,113 @@
+<!-- views/bookList.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #007BFF;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    input {
+      padding: 8px;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #007BFF;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      text-align: center;
+    }
+
+    li {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Book List</h1>
+  </header>
+
+  <nav>
+    <a href="/">Home</a>
+    <a href="/authors/new">Create Author</a>
+    <a href="/authorList">Get all Authors</a>
+    <a href="/books/search">Search books</a>
+  </nav>
+
+  <form action="/books/search_results" method="get">
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title">
+    <br>
+    <label for="author">Author:</label>
+    <input type="text" id="author" name="author">
+    <br>
+    <button type="submit">Search</button>
+  </form>
+
+  <ul>
+    <% books.forEach(book => { %>
+      <li>
+        <%= book.title %> by <%= book.author %> publication year <%= book.year %>
+      </li>
+    <% }); %>
+  </ul>
+</body>
+</html>

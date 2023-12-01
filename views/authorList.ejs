@@ -1,0 +1,107 @@
+<!-- views/authorList.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Author List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #007BFF;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 20px;
+    }
+
+    strong {
+      font-weight: bold;
+    }
+
+    table {
+      width: 80%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #007BFF;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Author List</h1>
+  </header>
+
+  <nav>
+    <a href="/">Home</a>
+    <a href="/authors/new">Create Author</a>
+    <a href="/authorList">Get all Authors</a>
+    <a href="/books/search">Search books</a>
+  </nav>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Birthdate</th>
+        <th>Nationality</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% authors.forEach(author => { %>
+        <tr>
+          <td><%= author.name %></td>
+          <td><%= author.birthdate %></td>
+          <td><%= author.nationality %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</body>
+</html>
